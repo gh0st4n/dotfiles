@@ -1,0 +1,142 @@
+# ===== CONFIGURE BSPWM =====
+
+# ==== Apps ====
+# == Terminal ==
+super + Return
+    alacritty
+
+super + shift + Return
+    xfce4-terminal
+
+# == Rofi ==
+# Menu
+super + d
+    rofi -show drun -config ~/.config/rofi/config.rasi
+
+super + y
+    rofi -show window -config ~/.config/rofi/workspace.rasi
+
+super + p
+    ~/.config/bspwm/scripts/utility/powermenu
+
+super + shift + p
+    ~/.config/bspwm/scripts/utility/power-profiles
+# == END
+
+# == Apps ==
+# File manager
+super + e
+    thunar
+
+# Browser
+super + w
+    firefox
+
+# Discord
+super + shift + d
+    discord
+
+# Telegram
+super + t
+    telegram-desktop
+
+# == Utility ==
+# Screenshot GUI
+Print
+    flameshot gui
+# Screenshot alternate
+super + shift + s
+    flameshot gui
+
+
+# Wifi nmtui
+super + shift + w
+    alacritty -e nmtui
+
+
+# Monitor
+# Enable
+super + n
+    ~/.config/bspwm/scripts/utility/hdmi connect
+# Disable
+super + m
+    ~/.config/bspwm/scripts/utility/hdmi disconnect
+
+
+# AUDIO
+
+XF86AudioRaiseVolume
+    ~/.config/bspwm/scripts/volume up
+
+XF86AudioLowerVolume
+    ~/.config/bspwm/scripts/volume down
+
+XF86AudioMute
+    ~/.config/bspwm/scripts/volume mute
+
+XF86AudioMicMute
+    amixer sset Capture toggle
+
+super + shift + a
+    ~/.config/bspwm/scripts/utility/audio-switch
+
+
+# BRIGHTNESS
+
+XF86MonBrightnessUp
+    ~/.config/bspwm/scripts/brightness up
+
+XF86MonBrightnessDown
+    ~/.config/bspwm/scripts/brightness down
+
+# == END ==
+
+
+# == Window ==
+# Kill window
+super + q
+    bspc node -c
+
+# Fullscreen
+super + f
+    bspc node -t fullscreen
+
+# Floating toggle
+super + shift + space
+    bspc node -t floating
+
+
+# Move focus
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Swap windows
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+# == END ==
+
+
+# == Workspace ==
+# Workspaces (bspwm = desktop)
+super + {1-9,0}
+    bspc desktop -f {1-9,10}
+
+super + shift + {1-9,0}
+    bspc node -d {1-9,10}
+
+
+# Switch workspace next/prev
+super + Tab
+    bspc desktop -f next
+
+super + shift + Tab
+    bspc desktop -f prev
+
+# == END ==
+
+
+# == SCRIPT ==
+super + alt + {h,j,k,l}
+    ~/.config/bspwm/scripts/resize.sh {left,down,up,right}
+
