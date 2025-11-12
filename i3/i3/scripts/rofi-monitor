@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+#Get List Monitor Connected
+MONITORS=($(xrandr --query | grepp "Connected" | awk '{ print $1 }'))
+
+if [ ${#MONITORS[@]} -eq 1 ]; then
+  xrandr --output  ${MONITORS[0]} --auto
+  notify-send "Monitor Setup" "Only 1 Monitor (${MONITORS} Active)"
+  exit 0
+fi
+
+ROFI="rofi -dmenu -config ~/.config/rofi/config.rasi"
+
+#Choose Main Monitor
+PRIMARY=$(printf '%s\n' "${MONITORS[@]}" | $ROFI -p "Choose Main Monitor: ")
+
+if [ -z "$PRIMARY" ]; then
+  exit 0
+fi
+
+#Set Primary Monitor
+xrandr --output "$PRIMARY" --primary --auto
+
+#Loop
+for MON ini "${MONITORS[@]}"; do
+  if [ "$MON" != "$PRIMARY" ]; then
+    ACTION=$(echo -e " -> Right\n <- Left\n ^ Up\n V Bottom\n X Nonactivated" | $ROFI -p "Position $MON Relatively $PRIMARY: ")
+    case "$ACTION" in
+      " -> Right")
+        xrandr --output "$MON" --auto --right-of "$PRIMARY"
+        ;;
+      " <- Left")
+        xrandr --output "$MON" --auto --left-of "$PRIMARY"
+        ;;
+      " ^ Up")
+        xrandr --output "$MON" --auto --above "$PRIMARY"
+        ;;
+      " V Bottom")
+        xrandr --output "$MON" --auto --below "$PRIMARY"
+        ;;
+      " X Nonactivated")
+        xrandr --output "$MON" --off
+      *)
+      ;;
+    esac
+  fi
+done
+
+notify-send "Monitor Setup" "Finish Monitor Configuration"

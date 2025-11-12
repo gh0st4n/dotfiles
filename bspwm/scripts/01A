@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+# Resize window using arrow keys
+
+case "$1" in
+    left) bspc node -z left -40 0  ;;  # Shrink left
+    right) bspc node -z right 40 0  ;;  # Expand right
+    up) bspc node -z top 0 -40  ;;  # Shrink upwards
+    down) bspc node -z bottom 0 40  ;;  # Expand down
+esac
