@@ -66,13 +66,13 @@ super + m
 # AUDIO
 
 XF86AudioRaiseVolume
-    ~/.config/bspwm/scripts/volume up
+    ~/.config/bspwm/scripts/utility/volume up
 
 XF86AudioLowerVolume
-    ~/.config/bspwm/scripts/volume down
+    ~/.config/bspwm/scripts/utility/volume down
 
 XF86AudioMute
-    ~/.config/bspwm/scripts/volume mute
+    ~/.config/bspwm/scripts/utility/volume mute
 
 XF86AudioMicMute
     amixer sset Capture toggle
@@ -84,10 +84,10 @@ super + shift + a
 # BRIGHTNESS
 
 XF86MonBrightnessUp
-    ~/.config/bspwm/scripts/brightness up
+    ~/.config/bspwm/scripts/utility/brightness up
 
 XF86MonBrightnessDown
-    ~/.config/bspwm/scripts/brightness down
+    ~/.config/bspwm/scripts/utility/brightness down
 
 # == END ==
 
