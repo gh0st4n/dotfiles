@@ -7,7 +7,6 @@ killall -q picom
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 
 # Start picom original dengan config
-picom --experimental-backends --config "$HOME/.config/picom/picom.conf" &
+picom --config "$HOME/.config/picom/picom.conf" &
 
 exit 0
-
