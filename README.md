@@ -3,7 +3,7 @@ my dotfiles on arch linux &amp; void linux
 - !! Available for X11
 
 ### Arch Linux - i3 WM
-<img src="/assets/i3.png" alt="i3wm" width="800"/>
+<img src="/assets/i3wm.png" alt="i3wm" width="800"/>
 Configuration : https://github.com/gh0st4n/dotfiles/tree/arch/i3 - branches : arch [>_<]
 
 ### Arch Linux - BSPWM
