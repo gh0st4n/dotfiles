@@ -1,0 +1,50 @@
+#!/usr/bin/bash
+
+# === Sleep - Delay === #
+sleep 0.2
+
+# ========= STOP PROCESS ========= #
+# killall
+killall -q picom
+killall -q polybar
+killall -q dunst
+
+# pkill
+pkill sxhkd
+
+# Wait until stop
+while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+while pgrep -u $UID -x dunst >/dev/null; do sleep 1; done
+
+# ========= WALLPAPER ========= #
+feh --bg-fill "$HOME/.wallpaper/Sinon-3.jpg"
+
+# ========= POLYBAR (MULTI MONITOR) ========= #
+~/.config/polybar/launch.sh &
+
+# ========= SXHKD ========= #
+sxhkd -c "$HOME/.config/bspwm/sxhkdrc" &
+
+# ========= PICOM (ORIGINAL) ========= #
+# Running Picom
+~/.config/picom/script/auto.sh &
+# Auto pause/resume picom saat fullscreen
+~/.config/picom/script/autopause.sh &
+
+# ========= NOTIFICATION DAEMON ========= #
+/usr/bin/dunst &
+
+# ========= POLKIT (GUI ROOT PASSWORD PROMPT) ========= #
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# ========= POWER SAVING DISPLAY ========= #
+xset s 480 dpms 600 600 600 &
+
+# ========= Script Auto ========= #
+# Auto handle monitor hotplug
+~/.config/bspwm/scripts/utility/monitor &
+~/.config/bspwm/scripts/01Rules &
+
+exit 0
+
