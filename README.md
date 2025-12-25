@@ -1,5 +1,5 @@
 # My Dotfiles
-my dotfiles on arch linux &amp; void linux
+my dotfiles on arch linux
 - !! Available for X11
 
 ### Arch Linux - BSPWM
