@@ -1,0 +1,17 @@
+[00:15:53] === Starting system detection ===
+[00:15:53] Adapter: ADP0
+[00:15:53] Battery: BAT0
+[00:15:53] Graphics card: intel_backlight
+[00:15:53] Wireless interface: wlp0s20f3
+[00:15:53] Wired interface: eth0
+[00:15:53] Configuration saved to system.ini
+System already configured today
+[14:21:07] === Starting system detection ===
+[14:21:07] Adapter: ADP0
+[14:21:07] Battery: BAT0
+[14:21:07] Graphics card: intel_backlight
+[14:21:07] Wireless interface: wlan0
+[14:21:07] Wired interface: eth0
+[14:21:07] Configuration saved to system.ini
+System already configured today
+System already configured today
