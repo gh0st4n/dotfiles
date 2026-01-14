@@ -68,11 +68,11 @@ bspwm/
 │       ├── powermenu
 │       ├── powermenu-suspend
 │       └── volume
-└──  wallpaper
-    ├──  Sinon-1.jpg
-    ├──  Sinon-2.jpg
-    ├──  Sinon-3.jpg
-    └──  Sinon-4.jpg
+└── wallpaper/
+    ├── Sinon-1.jpg
+    ├── Sinon-2.jpg
+    ├── Sinon-3.jpg
+    └── Sinon-4.jpg
 
 alacritty/
 ├── alacritty.toml
