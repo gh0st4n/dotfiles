@@ -90,7 +90,7 @@ menu=(
   [    Reboot]="systemctl reboot"
   [    Suspend]="~/.config/bspwm/scripts/utility/powermenu-suspend"
   [     Hibernate]="systemctl hibernate"
-  [     Lock]="~/.config/bspwm/scripts/utility/auto-lock"
+  [     Lock]="~/.config/bspwm/scripts/utility/lock"
   [↪    Logout]="bspc quit"
   [     Cancel]=""
 )
